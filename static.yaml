@@ -1,0 +1,23 @@
+debug: true
+
+log:
+  level: DEBUG
+
+api:
+  insecure: true
+  dashboard: true
+  debug: true
+
+entryPoints:
+  web:
+    address: ":80"
+  web-secure:
+    address: ":443"
+
+providers:
+  docker:
+    defaultRule: "Host(`{{ .Name | splitList `-` | reverse | join `.` }}.test`)"
+    network: proxy
+  file:
+    filename: /etc/traefik/dynamic.yaml
+    watch: true

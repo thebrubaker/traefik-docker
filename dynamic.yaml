@@ -1,0 +1,9 @@
+tls:
+  certificates:
+    - certFile: /certs/test.crt
+      keyFile: /certs/test.key
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /certs/test.crt
+        keyFile: /certs/test.key
