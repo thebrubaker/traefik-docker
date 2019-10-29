@@ -28,10 +28,9 @@ services:
     networks:
       - proxy
     labels:
-      # - "traefik.enable=true"
-      # - "traefik.http.routers.traefik.rule=Host(`traefik.test`)"
-      # - "traefik.http.routers.traefik.entrypoints=web-secure"
-      # - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.whoami-insecure.entrypoints=web"
+      - "traefik.http.routers.whoami-insecure.middlewares=redirect-to-https"
+
       - "traefik.http.routers.whoami.tls=true"
 networks:
   proxy:
