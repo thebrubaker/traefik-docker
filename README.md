@@ -69,9 +69,7 @@ If your setup worked, you should be able to go to [http://traefik.proxy.test](ht
 
 All docker containers that exist within the `proxy` network are proxied by traefik.
 
-Docker-compose containers are hosted at `http://(projectName).(serviceName).test` because they concatenate the project and service name as the container name. This setup will break up any dashes in a container name and reverse the order.
-
-So if the container is called `app-some_project` then you can access it at `http://some_project.app.test`.
+Docker-compose containers are hosted at `http://(projectName).(serviceName).test` and regular docker containers will be hosted at `http://(containerName).test`
 
 To add a container to the proxy network in a docker-compose file, you can add the following to your compose file:
 ``` yaml
@@ -97,7 +95,17 @@ services:
       - "traefik.http.routers.containerName-insecure.entrypoints=web"
       - "traefik.http.routers.containerName-insecure.middlewares=redirect-to-https"
 
-      # Enables TLS with a self-signed .test certificate
+      # Enables TLS with a self-signed .test certificate, replace `containerName`
       - "traefik.http.routers.containerName.entrypoints=web-secure"
       - "traefik.http.routers.containerName.tls=true"
+```
+
+### Custom Host Name
+Within your docker compose file, add the following labels to use a custom host name:
+``` yaml
+version: "3.3"
+services:
+  serviceName:
+    labels:
+      - "traefik.http.routers.containerName.rule=Host(`custom-name.test`)"
 ```

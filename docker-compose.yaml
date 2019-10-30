@@ -31,6 +31,7 @@ services:
       - "traefik.http.routers.whoami-insecure.entrypoints=web"
       - "traefik.http.routers.whoami-insecure.middlewares=redirect-to-https"
 
+      - "traefik.http.routers.whoami.entrypoints=web-secure"
       - "traefik.http.routers.whoami.tls=true"
 networks:
   proxy:
