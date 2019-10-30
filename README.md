@@ -9,6 +9,7 @@ version: "3.3"
 services:
   whoami:
     image: containous/whoami:v1.3.0
+    container_name: whoami
     networks:
       - proxy
 networks:
