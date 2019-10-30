@@ -65,7 +65,7 @@ Run traefik as a container on the proxy network
 docker-compose up -d
 ```
 
-If your setup worked, you should be able to go to [http://traefik.proxy.test](http://traefik.proxy.test) and see the Traefik dashboard, which details all of the exposed services.
+If your setup worked, you should be able to go to [http://traefik.proxy.test](http://traefik.proxy.test) (assuming you cloned this into a directory called traefik) and you will see the Traefik dashboard, which details all of the exposed services.
 
 All docker containers that exist within the `proxy` network are proxied by traefik.
 
