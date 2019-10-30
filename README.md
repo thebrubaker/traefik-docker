@@ -30,7 +30,7 @@ To start, clone this repository. I cloned it into `$HOME/.config/traefik`
 
 Create a proxy docker network
 ``` shell
-docker networks create proxy
+docker network create proxy
 ```
 
 Install dnsmasq to route `.test` domains to localhost
@@ -40,21 +40,19 @@ brew install dnsmasq
 
 Add `.test` domain to dnsmasq configuration
 ``` shell
-echo $(brew --prefix)/etc/dnsmasq.conf >> address=/.test/127.0.0.1
+echo address=/.test/127.0.0.1 >> $(brew --prefix)/etc/dnsmasq.conf
 ```
 
-Add .test domain to resolvers
-``` shell
-cat > /etc/resolvers/test <<EOF
+Create the following resolver at `/etc/resolver/test`
+```
 nameserver 127.0.0.1
 domain test
 search_order 1
-EOF
 ```
 
 Start dnsmasq through homebrew
 ``` shell
-brew services stop dnsmasq && brew services start dnsmasq
+sudo brew services stop dnsmasq && sudo brew services start dnsmasq
 ```
 
 Generate certificates for .test domain
