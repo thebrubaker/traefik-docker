@@ -57,7 +57,7 @@ sudo brew services stop dnsmasq && sudo brew services start dnsmasq
 
 Generate certificates for .test domain
 ``` shell
-(cd certs && bash test-cert.bash)
+(cd certs && bash generate-test-cert.bash)
 ```
 
 Run traefik as a container on the proxy network
