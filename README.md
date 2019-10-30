@@ -1,8 +1,8 @@
 Traefik (pronounced _traffic_) is a modern HTTP reverse proxy and load balancer that integrates directly with your existing docker infrastructure. You can read more information about Traefik at their [repository](https://github.com/containous/traefik) or by going through their [documentation](https://traefik.io/).
 
-If you are like me, you might have many different projects running at the same time with various port bindings that often conflict, or are difficult to remember. This small setup was built to solve the challenges associated with managing dozens of different port bindings on local development with docker. Instead of accessing your application at `http://localhost:8005` you can now access it at `http://containerName.test`
+If you are like me, you might have many different projects running at the same time with various port bindings that often conflict, or are difficult to remember. This small setup was built to solve the challenges associated with managing dozens of different port bindings on local development with docker.
 
-For example, if you had the following docker-compose service running, your container would be available at [http://whoami.test](http://whoami.test)
+Instead of accessing your application at `http://localhost:8005` you can now access it at `http://containerName.test` For example, if you had the following docker-compose service running, your container would be available at [http://whoami.test](http://whoami.test)
 
 ``` yaml
 version: "3.3"
