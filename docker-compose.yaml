@@ -5,7 +5,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
     volumes:
       - ./dynamic.yaml:/etc/traefik/dynamic.yaml:ro
       - ./static.yaml:/etc/traefik/traefik.yaml
